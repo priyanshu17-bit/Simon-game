@@ -1,0 +1,192 @@
+/* Futuristic Animated Gradient Background */
+/* body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(-45deg, #1f1c2c, #928dab, #000428, #004e92);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+} */
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0d1117; /* Dark clean look */
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.game-container {
+  text-align: center;
+  color: #fff;
+}
+
+#level-title {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px cyan, 0 0 30px blue;
+}
+
+#score-board {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #fffa;
+}
+
+.simon-board {
+  display: grid;
+  grid-template-columns: repeat(2, 160px);
+  grid-gap: 25px;
+  justify-content: center;
+}
+
+.btn {
+  width: 160px;
+  height: 160px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Neon Glow Colors */
+.green { background: rgba(0, 255, 128, 0.5); box-shadow: 0 0 20px #00ff80; }
+.red   { background: rgba(255, 0, 64, 0.5); box-shadow: 0 0 20px #ff0040; }
+.yellow{ background: rgba(255, 230, 0, 0.5); box-shadow: 0 0 20px #ffee00; }
+.blue  { background: rgba(0, 128, 255, 0.5); box-shadow: 0 0 20px #0080ff; }
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px white;
+}
+
+.pressed {
+  transform: scale(0.95);
+  filter: brightness(1.5);
+}
+
+.game-over {
+  animation: shake 0.3s;
+  background: rgba(255, 0, 0, 0.7);
+}
+
+@keyframes shake {
+  0% { transform: translateX(0px); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0px); }
+}
+
+.glow {
+  box-shadow: 0 0 40px white, 0 0 60px currentColor;
+  transform: scale(1.05);
+  filter: brightness(1.8);
+}
+.flash {
+  filter: brightness(2);
+  box-shadow: 0 0 40px white;
+}
+
+#green.glow {
+  box-shadow: 0 0 40px #00ff80, 0 0 80px #00ff80;
+}
+#red.glow {
+  box-shadow: 0 0 40px #ff0040, 0 0 80px #ff0040;
+}
+#yellow.glow {
+  box-shadow: 0 0 40px #ffee00, 0 0 80px #ffee00;
+}
+#blue.glow {
+  box-shadow: 0 0 40px #0080ff, 0 0 80px #0080ff;
+}
+
+
+/* Rules Button */
+#rules-btn {
+  background: #00ffcc;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  font-family: 'Orbitron', sans-serif;
+}
+#rules-btn:hover {
+  background: #00cc99;
+  box-shadow: 0 0 15px #00ffcc;
+}
+
+/* Modal (background overlay) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
+/* Modal content */
+.modal-content {
+  background: #111;
+  color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 60%;
+  max-width: 500px;
+  box-shadow: 0 0 20px #00ffcc;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Close button (X) */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #fff;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+footer p:hover {
+  opacity: 1;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+}
